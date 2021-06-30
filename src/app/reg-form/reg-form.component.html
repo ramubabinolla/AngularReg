@@ -1,0 +1,23 @@
+<form name="reg" align="center">
+    <div class="form-group">
+    <label for="firstName" >First Name : </label>
+    <input required minlength="5" maxlength="12" ngModel name ="firstName" type="text" #firstName="ngModel" (change)="log(firstName)"><br><br>
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors?.required">Mandatory</div>
+        <div *ngIf="firstName.errors?.minlength">First Name should have minimum 5 characters</div> 
+      </div>
+    </div>
+    <label >Last Name : </label>
+    <input  required minlength="5" maxlength="12" type="text" ngModel name ="lastName" #lastName="ngModel" (change)="log(lastName)"  ><br><br>
+    <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+        <div *ngIf="lastName.errors?.required">Mandatory</div>
+        <div *ngIf="lastName.errors?.minlength">Last Name should have minimum 5 characters</div> 
+      </div>     
+      
+    <label >Contact : </label>
+    <input  required maxlength="10" type="number" ngModel name ="phno" #phno="ngModel" (change)="log(phno)" ><br><br>
+    <div class="alert alert-danger" *ngIf="phno.touched && !phno.valid">
+        <div *ngIf="phno.errors?.required">Mandatory</div>
+      </div>  
+    <button class="btn btn-primary" click="newRegister()">Register</button>
+</form>
